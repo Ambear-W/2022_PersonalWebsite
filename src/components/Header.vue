@@ -5,20 +5,34 @@
 <template>
   <header>
     <nav>
-      <div class="topNav">
+      <div class="nav-menu">
         <div>
-          <a class="skip">Skip to main content</a>
+          <a class="skip" href="#main">Skip to main content</a>
         </div>
         <div>
           <a class="branding" href="">Amber Wells - Developer</a>
         </div>
+
         <div class="navigation">
-          <a class="nav-link" href="">About Me</a>
-          <a class="nav-link" href="">Qualifications</a>
-          <a class="nav-link" href="">Projects</a>
-          <a class="nav-link" href="">Contact me</a>
-          <a class="nav-link" href="">Resume</a>
+          <ul>
+            <li>
+              <a class="underLine-link" href="">About Me</a>
+            </li>
+            <li>
+              <a class="underLine-link" href="">Qualifications</a>
+            </li>
+            <li>
+              <a class="underLine-link" herf="">Projects</a>
+            </li>
+            <li>
+              <a class="underLine-link" href="">Contact me</a>
+            </li>
+            <li>
+              <a class="underLine-link" href="">Resume</a>
+            </li>
+          </ul>
         </div>
+        
       </div>
     </nav>
   </header>
@@ -27,50 +41,60 @@
 <style lang="scss">
   @import '../assets/_globalStyles.scss';
   
-  .topNav {
+  .nav-menu {
     background-color: $green;
     position: absolute;
     width: 100%;
-    height: 153px;
+    height: 150px;
     left: 0px;
     top: 0px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
     .skip {
-
+      background: $lightGreen;
+      position: absolute;
+      transform: translateY(-100%);
+      transform: 0.3s;
+      text-decoration: none;
+    }
+    a:focus{
+        transform: translateY(0%);
+        text-decoration: none;
     }
 
     .branding {
-      position: absolute;
-      left: 1.74%;
-      right: 63.54%;
-      top: 17.73%;
-      bottom: 50.66%;
-      font-family: 'Abel';
-      font-style: normal;
+      left: 2%;
+      right: 50%;
+      top: 25%;
+      bottom: 50%;
+      font-family: 'Roboto', sans-serif;
       font-weight: 400;
-      font-size: 48px;
-      line-height: 61px;
+      font-size: 3em;
       text-decoration: none;
-      color: #FFFFFF;
+      color: $white;
     }
 
     .navigation {
       position: absolute;
       right: 0;
       bottom: 0;
+
+      li{
+        display: inline;
+        list-style: none;
+      }
+
       a {
         position: relative;
         margin: 1em;
-        font-family: 'Abel';
-        font-style: normal;
+        font-family: 'Abel', sans-serif;
         font-weight: 400;
-        font-size: 32px;
-        line-height: 41px;
+        font-size: 2em;
         text-align: center;
         text-decoration: none;
-        color: #FFFFFF;
-      }
+        color: $white;
+
+      }      
     }
   }
 </style>

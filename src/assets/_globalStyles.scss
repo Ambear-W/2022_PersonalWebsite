@@ -1,4 +1,28 @@
-//colors
-$green : #8AA766;
-
 //fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+//colors
+$green : #446a46;
+$lightGreen: #d5e2d5;
+$white : #FFFFFF;
+
+.underLine-link{
+    &:after{
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 5%;
+        left: 50%;
+        position: absolute;
+        background: $white;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+    }
+    &:hover:after{
+        height: 5%;
+        width: 100%;
+        left: 0;
+    }
+}

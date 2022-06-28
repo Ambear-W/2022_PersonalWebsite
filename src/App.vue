@@ -14,6 +14,7 @@ import NavHeader from './components/Header.vue'
   </main>
 </template>
 
-<style>
+<style lang="scss">
 @import './assets/base.css';
+@import './assets/_globalStyles.scss';
 </style>
