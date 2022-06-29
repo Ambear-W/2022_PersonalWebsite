@@ -2,10 +2,16 @@
   <header :class="{'scrolled-nav' : scrollPosition}">
     <nav>
       <a class="skip" href="#main">Skip to main content</a>
+
       <div>
         <router-link class="branding" :to="{name: 'Home'}">Amber Wells - Developer</router-link>
+        <button @click="toggleMobileNav" v-show="mobile" type="button" class="unstyled-button hamburger-lines" :class="{'icon-active' : mobileNav}">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </button>
       </div>
-      
+
       <ul v-show="!mobile" class="navigation">
         <li><router-link class="link underLine-link" :to="{name: 'About Me'}">About Me</router-link></li>
         <li><router-link class="link underLine-link" :to="{name: 'Qualifications'}">Qualifications</router-link></li>
@@ -14,20 +20,13 @@
         <li><router-link class="link underLine-link" :to="{name: 'Resume'}">Resume</router-link></li>
       </ul>
       
-      <div class="icon">
-        <button @click="toggleMobileNav" v-show="mobile" type="button" class="unstyled-button hamburger-lines" :class="{'icon-active' : mobileNav}">
-          <span class="line line1"></span>
-          <span class="line line2"></span>
-          <span class="line line3"></span>
-        </button>
-      </div>
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li><router-link class="underLine-link" :to="{name: 'About Me'}">About Me</router-link></li>
-          <li><router-link class="underLine-link" :to="{name: 'Qualifications'}">Qualifications</router-link></li>
-          <li><router-link class="underLine-link" :to="{name: 'Projects'}">Projects</router-link></li>
-          <li><router-link class="underLine-link" :to="{name: 'Contact Me'}">Contact Me</router-link></li>
-          <li><router-link class="underLine-link" :to="{name: 'Resume'}">Resume</router-link></li>
+          <li><router-link class="link underLine-link" :to="{name: 'About Me'}">About Me</router-link></li>
+          <li><router-link class="link underLine-link" :to="{name: 'Qualifications'}">Qualifications</router-link></li>
+          <li><router-link class="link underLine-link" :to="{name: 'Projects'}">Projects</router-link></li>
+          <li><router-link class="link  underLine-link" :to="{name: 'Contact Me'}">Contact Me</router-link></li>
+          <li><router-link class="link  underLine-link" :to="{name: 'Resume'}">Resume</router-link></li>
         </ul>
       </transition>
     </nav>
@@ -40,8 +39,8 @@ export default{
   data(){
     return{
       scrollPosition: null,
-      mobile: null,
-      mobileNav: null,
+      mobile: false,
+      mobileNav: false,
       windowWidth: null,
     };
   },
@@ -56,7 +55,6 @@ export default{
     background-color: $green;
     z-index: 99;
     width: 100%;
-    height: 9.375rem; //150px
     transition: .5s ease all;
     color: $white;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -64,17 +62,10 @@ export default{
     .skip{
       background: $lightGreen;
       position: absolute;
-      left: -10000px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
+      transform: translateY(-2000%);
       text-decoration: none;
-
+      
       &:focus{
-        height: 50px;
-        width: 100px;
-        position: static;
         transform: translateY(0%);
         color: black;
         text-decoration: none;
@@ -82,15 +73,21 @@ export default{
     }
 
     nav{
-      display: flex;
+      position: relative;
       flex-direction: row;
       padding: 12px 0;
       transition: .5s ease all;
-      width: 90%;
-      margin: 0 auto;
 
-      @media(min-width: 1140px){
-        max-width: 1140px;
+      @media(min-width: 963px){
+        
+      }
+
+      .navigation{
+        display: flex;
+        align-items: center;
+        flex: 1;
+        justify-content: flex-end;
+        margin: 12px;
       }
       
       ul,
@@ -103,18 +100,16 @@ export default{
       }
 
       li{
-        padding: 16px;
-        margin-left: 16px;
+        margin-left: 32px;
       }
 
       .branding{
-        left: 5%;
+        position: relative;
+        margin: 12px;
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
         font-size: 3rem;
         text-decoration: none;
-        display: flex;
-        align-items: center;
       }
     }
 
@@ -125,12 +120,12 @@ export default{
     }
 
     .hamburger-lines{
-      display: block;
       height: 26px;
       width: 40px;
       position: absolute;
-      top: 17px;
-      left: 20px;
+      top: 0;
+      right: 0;
+      margin: 12px;
       z-index: 2;
       display: flex;
       flex-direction: column;
@@ -155,7 +150,26 @@ export default{
         transform-origin: 0% 100%;
         transition: transform 0.4s ease-in-out;
       }
+    }
 
+    .dropdown-nav{
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      width: 100%;
+      //max-width: 250px;
+      //height: 100%;
+      background-color: $green;
+      top: 0;
+      right: 0;
+      padding: 12px;
+
+      li{
+        margin: 12px;
+        .link{
+          color: white;
+        }
+      }
     }
   }
   
