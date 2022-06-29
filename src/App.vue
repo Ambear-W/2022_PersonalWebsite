@@ -1,7 +1,3 @@
-<script setup>
-import NavHeader from './components/Header.vue'
-</script>
-
 <template>
   <header>
     <div>
@@ -14,7 +10,17 @@ import NavHeader from './components/Header.vue'
   </main>
 </template>
 
+<script>
+import NavHeader from './components/Header.vue'
+export default{
+  name: "App",
+  components:{
+    NavHeader,
+  },
+}
+</script>
+
 <style lang="scss">
-@import './assets/base.css';
+//@import './assets/base.css';
 @import './assets/_globalStyles.scss';
 </style>
