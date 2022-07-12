@@ -2,10 +2,8 @@
   <header :class="{'scrolled-nav' : scrollPosition}">
     <a class="skip" href="#main">Skip to main content</a>
     <nav>
-
       <div class="center">
-        <router-link v-if="!mobile && !superSmall" class="branding" :to="{name: 'Home'}">Amber Wells - Developer</router-link>
-        <router-link v-if="mobile && !superSmall" class="branding-mobile" :to="{name: 'Home'}">Amber Wells - Developer</router-link>
+        <router-link v-if="!superSmall" :class="mobile ? 'branding-mobile' : 'branding'" :to="{name: 'Home'}">Amber Wells - Developer</router-link>
         <router-link v-if="superSmall" class="branding-mobile" :to="{name: 'Home'}">Amber W - Dev</router-link>
         <button @click="toggleMobileNav" v-show="mobile" type="button" class="unstyled-button hamburger-lines" :class="{'icon-active' : mobileNav}">
           <span class="line line1"></span>
@@ -85,12 +83,14 @@ export default{
   }
 
   header{
-    position: fixed;
+    position: sticky;
+    top: 0;
     background-color: $green;
     z-index: 99;
     width: 100%;
     transition: .5s ease all;
     color: $white;
+    overflow: visible;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
     .skip{
@@ -144,6 +144,7 @@ export default{
 
       .branding{
         position: relative;
+        left: 20px;
         margin: 12px;
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
@@ -200,14 +201,23 @@ export default{
         transition: transform 0.4s ease-in-out;
       }
     }
+    .icon-active{
+      .line1{
+        transform: rotate(45deg);
+      }
+      .line2{
+        transform: scaleY(0);
+      }
+      .line3{
+        transform: rotate(-45deg);
+      }
+    }
 
     .dropdown-nav{
       display: flex;
       flex-direction: column;
       position: fixed;
       width: 100%;
-      //max-width: 250px;
-      //height: 100%;
       background-color: $green;
       top: 0;
       right: 0;
@@ -218,7 +228,7 @@ export default{
         .link{
           color: white;
         }
-      }
+      }      
     }
   }
 </style>
