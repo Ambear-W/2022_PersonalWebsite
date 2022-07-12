@@ -1,10 +1,12 @@
 <template>
   <header :class="{'scrolled-nav' : scrollPosition}">
+    <a class="skip" href="#main">Skip to main content</a>
     <nav>
-      <a class="skip" href="#main">Skip to main content</a>
 
-      <div>
-        <router-link class="branding" :to="{name: 'Home'}">Amber Wells - Developer</router-link>
+      <div class="center">
+        <router-link v-if="!mobile && !superSmall" class="branding" :to="{name: 'Home'}">Amber Wells - Developer</router-link>
+        <router-link v-if="mobile && !superSmall" class="branding-mobile" :to="{name: 'Home'}">Amber Wells - Developer</router-link>
+        <router-link v-if="superSmall" class="branding-mobile" :to="{name: 'Home'}">Amber W - Dev</router-link>
         <button @click="toggleMobileNav" v-show="mobile" type="button" class="unstyled-button hamburger-lines" :class="{'icon-active' : mobileNav}">
           <span class="line line1"></span>
           <span class="line line2"></span>
@@ -39,17 +41,49 @@ export default{
   data(){
     return{
       scrollPosition: null,
-      mobile: false,
-      mobileNav: false,
+      mobile: null,
+      mobileNav: null,
       windowWidth: null,
+      superSmall: null,
     };
   },
+  created() {
+    window.addEventListener('resize', this.checkScreenSize);
+    this.checkScreenSize;
+  },
+  methods: {
+    toggleMobileNav(){
+      this.mobileNav = !this.mobileNav;
+    },
+    checkScreenSize(){
+      this.windowWidth = window.innerWidth;
+      if (this.windowWidth <= 319){
+        this.mobile = true;
+        this.superSmall = true;
+        return;  
+      }
+      if (this.windowWidth <= 842){
+        this.mobile = true;
+        this.superSmall = false;
+        return;
+      }
+      this.mobile = false;
+      this.mobileNav = false;
+      this.superSmall = false;
+      return;
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
   @import '../assets/_globalStyles.scss';
   
+  .center{
+    display: flex;
+    align-items: center;
+  }
+
   header{
     position: fixed;
     background-color: $green;
@@ -66,9 +100,14 @@ export default{
       text-decoration: none;
       
       &:focus{
+        background: $lightGreen;
+        position: relative;
         transform: translateY(0%);
+        opacity: 1;
         color: black;
         text-decoration: none;
+        font-weight: 400;
+        font-size: 2rem;
       }
     }
 
@@ -111,6 +150,16 @@ export default{
         font-size: 3rem;
         text-decoration: none;
       }
+      .branding-mobile{
+        position: relative;
+        margin: 12px;
+        font-style: bold;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 1.5rem;
+        text-decoration: none;
+      }
+      
     }
 
     .unstyled-button{
@@ -172,57 +221,4 @@ export default{
       }
     }
   }
-  
-  // .nav-menu {
-  //   background-color: $green;
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 150px;
-  //   left: 0px;
-  //   top: 0px;
-  //   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
-  //   .skip {
-  //     background: $lightGreen;
-  //     position: absolute;
-  //     transform: translateY(-100%);
-  //     transform: 0.3s;
-  //     text-decoration: none;
-  //   }
-  //   a:focus{
-  //       transform: translateY(0%);
-  //       text-decoration: none;
-  //   }
-
-  //   .branding {
-  //     left: 2%;
-  //     right: 50%;
-  //     top: 25%;
-  //     bottom: 50%;
-  //     font-family: 'Roboto', sans-serif;
-  //     font-weight: 400;
-  //     font-size: 3em;
-  //     text-decoration: none;
-  //     color: $white;
-  //   }
-
-  //   .navigation {
-  //     position: absolute;
-  //     right: 0;
-  //     bottom: 0;
-
-  //     li{
-  //       display: inline;
-  //       list-style: none;
-  //       position: relative;
-  //       margin: 1em;
-  //       font-family: 'Abel', sans-serif;
-  //       font-weight: 400;
-  //       font-size: 2em;
-  //       text-align: center;
-  //       text-decoration: none;
-  //       color: $white;
-  //     }     
-  //   }
-  // }
 </style>
