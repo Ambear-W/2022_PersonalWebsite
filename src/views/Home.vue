@@ -2,16 +2,19 @@
   <NavHeader />
   <main id="main">
     <div class="intro">
-        <h1>Hi! I'm Amber Wells!</h1>
-        <h2>I am a developer.</h2>
-        <br />
-        <br />
-        <p class="block">Welcome to my site and thank you for checking me out! 
-            <br />I'm thrilled to have you here and can't wait to meet you!
+      <div class="content">
+        <h1 class="moreMargin">Hi! I'm Amber Wells!</h1>
+        <h2 class="moreMargin">I am a developer.</h2>
+        <p class="top-distance">
+          Welcome to my site and thank you for checking me out! 
+          I'm thrilled to have you here and can't wait to meet you!
         </p>
         <div class="button-row">
-            <GreenButton></GreenButton>
+          <ButtonLink class="button-item">About Me</ButtonLink>
+          <ButtonLink class="button-item">Resume</ButtonLink>
+          <ButtonLink class="button-item">Contact Me</ButtonLink>
         </div>
+      </div>
     </div>
   </main>
 </template>
@@ -34,11 +37,31 @@ export default{
 main{
     position: relative;
     .intro{
-        padding-left: 5%;
-        padding-top: 5%;
+      padding-left: 5%;
+      padding-top: 5%;
+      padding-right: 5%;
     }
-    .block{
-        width: 100%;
+    .content{
+      width: 100%;
+      max-width: 492px;
+    }
+    .moreMargin{
+      margin-left: 12px
+    }
+    .top-distance{
+      padding-top: 10%;
+      margin-left: 12px;
+    }
+
+    .button-row{
+      padding-top: 4%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .button-item{
+        margin: 12px auto;
+      }
     }
 
 }

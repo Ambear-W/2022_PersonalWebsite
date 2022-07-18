@@ -5,7 +5,7 @@
       <div class="center">
         <router-link v-if="!superSmall" :class="mobile ? 'branding-mobile' : 'branding'" :to="{name: 'Home'}">Amber Wells - Developer</router-link>
         <router-link v-if="superSmall" class="branding-mobile" :to="{name: 'Home'}">Amber W - Dev</router-link>
-        <button @click="toggleMobileNav" v-show="mobile" type="button" class="unstyled-button hamburger-lines" :class="{'icon-active' : mobileNav}">
+        <button title="Navigation Dropdown" aria-label="Navigation Dropdown" @click="toggleMobileNav" v-show="mobile" type="button" class="unstyled-button hamburger-lines" :class="{'icon-active' : mobileNav}">
           <span class="line line1"></span>
           <span class="line line2"></span>
           <span class="line line3"></span>
