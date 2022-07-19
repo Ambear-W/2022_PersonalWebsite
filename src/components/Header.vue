@@ -13,7 +13,7 @@
       </div>
 
       <ul v-show="!mobile" class="navigation">
-        <li><router-link class="link underLine-link" :to="{name: 'About Me'}">About Me</router-link></li>
+        <li><router-link class="link underLine-link" :to="{ name: 'AboutMe' }">About Me</router-link></li>
         <li><router-link class="link underLine-link" :to="{name: 'Qualifications'}">Qualifications</router-link></li>
         <li><router-link class="link underLine-link" :to="{name: 'Projects'}">Projects</router-link></li>
         <li><router-link class="link underLine-link" :to="{name: 'Contact Me'}">Contact Me</router-link></li>
@@ -22,7 +22,7 @@
       
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li><router-link class="link underLine-link" :to="{name: 'About Me'}">About Me</router-link></li>
+          <li><router-link class="link underLine-link" :to="{name: 'AboutMe'}">About Me</router-link></li>
           <li><router-link class="link underLine-link" :to="{name: 'Qualifications'}">Qualifications</router-link></li>
           <li><router-link class="link underLine-link" :to="{name: 'Projects'}">Projects</router-link></li>
           <li><router-link class="link  underLine-link" :to="{name: 'Contact Me'}">Contact Me</router-link></li>

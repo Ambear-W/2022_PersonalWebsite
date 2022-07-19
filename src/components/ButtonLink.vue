@@ -1,9 +1,7 @@
 <template>
-    <router-link :to="{path: '/'}">
-        <button class="Button">
-            <slot>Button</slot>
-        </button>
-    </router-link>
+    <button class="Button">
+        <slot>Button</slot>
+    </button>
 </template>
 
 <script>

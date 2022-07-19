@@ -10,9 +10,15 @@
           I'm thrilled to have you here and can't wait to meet you!
         </p>
         <div class="button-row">
-          <ButtonLink class="button-item">About Me</ButtonLink>
-          <ButtonLink class="button-item">Resume</ButtonLink>
-          <ButtonLink class="button-item">Contact Me</ButtonLink>
+          <router-link :to="{name: 'AboutMe'}">
+            <ButtonLink class="button-item">About Me</ButtonLink>
+          </router-link>
+          <router-link :to="{name: 'Resume'}">
+            <ButtonLink class="button-item">Resume</ButtonLink>
+          </router-link>
+          <router-link :to="{name: 'Contact Me'}">
+            <ButtonLink class="button-item">Contact Me</ButtonLink>
+          </router-link>
         </div>
       </div>
     </div>
