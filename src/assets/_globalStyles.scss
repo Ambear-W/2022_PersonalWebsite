@@ -17,6 +17,8 @@ $darkGreen: #2A412B;
 $lightGreen: #d5e2d5;
 $white : #FFFFFF;
 
+a { color: inherit; } 
+
 .underLine-link{
     &:after{
         background: none repeat scroll 0 0 transparent;
@@ -51,4 +53,8 @@ h2{
 p{
     font-family: 'Abel', sans-serif;
     font-size: 1.5rem;
+}
+
+.img-curve{
+    border-radius: 98.5px;
 }

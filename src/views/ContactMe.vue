@@ -1,13 +1,5 @@
 <template>
-  <header>
-    <div>
-      <NavHeader />
-    </div>
-  </header>
 
-  <main id="main">
-
-  </main>
 </template>
 
 <script>

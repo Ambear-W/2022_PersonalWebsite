@@ -1,12 +1,7 @@
 <template>
-  <header>
-    <div>
-      <NavHeader />
-    </div>
-  </header>
-
+  <NavHeader />
   <main id="main">
-
+    <router-view />
   </main>
 </template>
 

@@ -8,9 +8,9 @@ import ContactMe from '../views/ContactMe.vue'
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
-    component: Home,
+    component: Home
   },
   {
     path: '/about-me',
@@ -40,7 +40,7 @@ const routes = [
 ];
 
 const router  = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 });
 
