@@ -10,7 +10,7 @@
             I'm thrilled to have you here and can't wait to meet you!
           </p>
         </div>
-        <img class="img-curve img-size" src="../assets/office-me.jpg" alt="">
+        <img class="img-curve img-size" src="../assets/office-me.jpg" alt="A picture of me with black short hair and square glasses sitting in my office chair">
         <div class="button-row">
           <router-link :to="{name: 'AboutMe'}">
             <ButtonLink class="button-item">About Me</ButtonLink>
@@ -39,7 +39,7 @@ export default{
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/_globalStyles.scss';
 
 main{
