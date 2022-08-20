@@ -30,7 +30,7 @@
           <li>I collect dice!</li>
         </ul>
       </div>
-      <img class="img-curve img-size-arlo" src="../assets/arlo_blep.jpg" alt="A waby hair dog sitting on the bed with his tongue sticking out"/>
+      <img class="img-curve img-size-arlo" src="../assets/arlo_blep.jpg" alt="A wavy hair dog sitting on the bed with his tongue sticking out"/>
     </div>
   </div>
 </template>

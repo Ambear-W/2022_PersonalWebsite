@@ -1,5 +1,5 @@
 <template>
-    <button class="Button">
+    <button class="Button" >
         <slot>Button</slot>
     </button>
 </template>
@@ -17,8 +17,10 @@ button{
     color: $white;
     font-family: 'Abel', sans-serif;
     border: none;
-    border-radius: 0;
-    padding: 12px;
+    width: 251px;
+    height: 54px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 95px;
 
      &:hover{
         transition: all .5s ease;

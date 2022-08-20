@@ -14,7 +14,6 @@
 
       <ul v-show="!mobile" class="navigation">
         <li><router-link class="link underLine-link" :to="{ name: 'AboutMe' }">About Me</router-link></li>
-        <li><router-link class="link underLine-link" :to="{name: 'Qualifications'}">Qualifications</router-link></li>
         <li><router-link class="link underLine-link" :to="{name: 'Projects'}">Projects</router-link></li>
         <li><router-link class="link underLine-link" :to="{name: 'Contact Me'}">Contact Me</router-link></li>
         <li><router-link class="link underLine-link" :to="{name: 'Resume'}">Resume</router-link></li>
@@ -22,11 +21,10 @@
       
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li><router-link class="link underLine-link" :to="{name: 'AboutMe'}">About Me</router-link></li>
-          <li><router-link class="link underLine-link" :to="{name: 'Qualifications'}">Qualifications</router-link></li>
-          <li><router-link class="link underLine-link" :to="{name: 'Projects'}">Projects</router-link></li>
-          <li><router-link class="link  underLine-link" :to="{name: 'Contact Me'}">Contact Me</router-link></li>
-          <li><router-link class="link  underLine-link" :to="{name: 'Resume'}">Resume</router-link></li>
+          <li><router-link class="link underLine-link" :to="{name: 'AboutMe'}" @click="toggleMobileNav">About Me</router-link></li>
+          <li><router-link class="link underLine-link" :to="{name: 'Projects'}" @click="toggleMobileNav">Projects</router-link></li>
+          <li><router-link class="link  underLine-link" :to="{name: 'Contact Me'}" @click="toggleMobileNav">Contact Me</router-link></li>
+          <li><router-link class="link  underLine-link" :to="{name: 'Resume'}" @click="toggleMobileNav">Resume</router-link></li>
         </ul>
       </transition>
     </nav>
